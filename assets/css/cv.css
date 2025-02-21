@@ -1,0 +1,464 @@
+* {
+    outline: none;
+  }
+  *, *:before, *:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+  }
+  a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    transition-duration: 0.3s;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  h3 {
+    color: #ffb300;
+    margin: 10px 0;
+    text-transform: capitalize;
+    font-size: 1.25em;
+  }
+  
+  /* MAIN CONTAINER */
+  .resume {
+    width: 100%;
+    max-width: 960px;
+    background: #1a237e;
+    color: #fff;
+    margin: 20px auto;
+    box-shadow: 10px 10px #0e1442;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* BASE and FUNC */
+  .resume .base,
+  .resume .func {
+    box-sizing: border-box;
+    width: 100%;
+  }
+  
+  /* LEFT COLUMN (BASE) */
+  .resume .base {
+    padding: 30px 15px;
+    background: #283593;
+    color: #fff;
+  }
+  .resume .base .profile {
+    background: #ffb300;
+    padding: 30px 15px 40px 15px;
+    margin: -30px -15px 45px -15px;
+    position: relative;
+    z-index: 2;
+  }
+  .resume .base .about, .resume .base .contact, .resume .base .follow{
+    padding: 10px 15px;
+  }
+  .resume .base .profile::after {
+    content: "";
+    position: absolute;
+    background: #303f9f;
+    width: 100%;
+    height: 30px;
+    bottom: -15px;
+    left: 0;
+    transform: skewY(-5deg);
+    z-index: -1;
+  }
+  .resume .base .profile .photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .resume .base .profile .photo img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .resume .base .profile .info {
+    text-align: center;
+    color: #fff;
+  }
+  .resume .base .profile .info .name {
+    margin-top: 10px;
+    font-size: 1.75em;
+    text-transform: capitalize;
+    color: #1a237e;
+  }
+  .resume .base .profile .info .job {
+    margin-top: 10px;
+    font-size: 1.5em;
+    text-transform: capitalize;
+    color: #283593;
+  }
+  .resume .base .contact div {
+    line-height: 24px;
+    margin-bottom: 10px;
+  }
+  .resume .base .contact div i {
+    color: #ffb300;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    text-align: center;
+    margin-right: 15px;
+    transition-duration: 0.3s;
+  }
+  .resume .base .contact div a:hover {
+    color: #fdd835;
+  }
+  .resume .base .contact,
+  .resume .base .contact div,
+  .resume .base .contact div a,
+  .resume .base .contact div span {
+    color: #fff !important;
+    font-weight: 500;
+  }
+  .blurred {
+    filter: blur(5px);
+    transition: filter 0.3s ease;
+  }
+  /* SOCIAL FOLLOW */
+  .resume .base .follow .box {
+    text-align: center;
+  }
+  .resume .base .follow .box a {
+    display: inline-block;
+    margin: 0 10px 10px;
+  }
+  .resume .base .follow .box i {
+    font-size: 30px;
+    background: #ffb300;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    line-height: 60px;
+    color: #283593;
+    transition-duration: 0.3s;
+  }
+  .resume .base .follow .box a:hover i {
+    background: #fdd835;
+    border-radius: 5px;
+    transform: rotate(45deg) scale(0.8);
+  }
+  /* RIGHT COLUMN (FUNC) */
+  .resume .func {
+    padding: 30px;
+    background: #1a237e;
+  }
+  .resume .func:hover > div {
+    transition-duration: 0.5s;
+  }
+  .resume .func:hover > div:hover h3 i {
+    transform: scale(1.25);
+  }
+  .resume .func:hover > div:not(:hover) {
+    opacity: 0.5;
+  }
+  .resume .func h3 {
+    margin-top: 0;
+    transition-duration: 0.3s;
+  }
+  .resume .func h3 i {
+    color: #283593;
+    background: #ffb300;
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+    line-height: 42px;
+    border-radius: 50%;
+    text-align: center;
+    margin-right: 8px;
+    transition-duration: 0.3s;
+  }
+  .resume .func .work,
+  .resume .func .edu {
+    width: 100%;
+    background: #283593;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  .job-item {
+    border: 1px solid #fff;
+    padding: 10px;
+    margin-left: 15px;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .job-item::before {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border: 3px solid #fff;
+    background: #ffb300;
+    border-radius: 50%;
+    left: 3px;
+    top: 30px;
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+  .job-item:not(:last-of-type)::after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: calc(100% + 10px);
+    background: #fff;
+    left: 5px;
+    top: 30px;
+    z-index: 0;
+  }
+  .job-item:hover::before {
+    animation: circle 1.2s infinite;
+  }
+  @keyframes circle {
+    from { box-shadow: 0 0 0 0px #fdd835; }
+    to { box-shadow: 0 0 0 6px rgba(255, 255, 255, 0); }
+  }
+  .job-item:hover h4 { color: #fdd835; }
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  .job-header h4 {
+    margin: 0;
+    font-size: 1.25em;
+    flex: 1;
+    color: #ffb300;
+    line-height: 1.3;
+  }
+  .job-dates {
+    font-style: italic;
+    margin-left: 10px;
+    color: #fff;
+  }
+  .job-details li {
+    list-style: disc;
+    margin: 10px auto;
+  }
+  .toggle-btn {
+    background: #1a237e;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  .collapsible-content { display: none; margin-top: 10px; }
+  .resume .func .edu ul li {
+    position: relative;
+    margin-left: 15px;
+    padding-left: 25px;
+    padding-bottom: 15px;
+  }
+  .resume .func .edu ul li::before {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border: 3px solid #fff;
+    background: #ffb300;
+    border-radius: 50%;
+    left: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+  .resume .func .edu ul li:hover::before { animation: circle 1.2s infinite; }
+  .resume .func .edu ul li:hover span { color: #fdd835; }
+  .resume .func .skills-prog {
+    clear: both;
+    background: #283593;
+    padding: 15px;
+  }
+  .resume .func .skills-prog ul {
+    margin-left: 15px;
+  }
+  .resume .func .skills-prog ul li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    transition-duration: 0.3s;
+  }
+  .resume .func .skills-prog ul li:hover { color: #fdd835; }
+  .resume .func .skills-prog ul li span {
+    display: block;
+    width: 120px;
+  }
+  .resume .func .skills-prog ul li .skills-bar {
+    background: #fff;
+    height: 2px;
+    width: calc(100% - 120px);
+    position: relative;
+    border-radius: 2px;
+  }
+  .resume .func .skills-prog ul li .skills-bar .bar {
+    position: absolute;
+    top: -1px;
+    height: 4px;
+    background: #ffb300;
+    border-radius: 5px;
+    box-shadow: 0 0 0 #ffb300;
+  }
+  .resume .func .skills-soft {
+    clear: both;
+    background: #283593;
+    padding: 15px;
+    margin-top: 15px;
+  }
+  .resume .func .skills-soft ul {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+  .resume .func .skills-soft ul li {
+    position: relative;
+    flex: 1 1 22%;
+    margin: 10px 0;
+  }
+  .resume .func .skills-soft ul li:hover svg .cbar {
+    stroke: #fdd835;
+    stroke-width: 4px;
+  }
+  .resume .func .skills-soft ul li:hover span,
+  .resume .func .skills-soft ul li:hover small {
+    transform: scale(1.2);
+  }
+  .resume .func .skills-soft ul li svg {
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin: 0 auto;
+    fill: transparent;
+    transform: rotate(-90deg);
+  }
+  .resume .func .skills-soft ul li svg circle {
+    stroke-width: 1px;
+    stroke: #fff;
+  }
+  .resume .func .skills-soft ul li svg .cbar {
+    stroke-width: 3px;
+    stroke: #ffb300;
+    stroke-linecap: round;
+  }
+  .resume .func .skills-soft ul li span,
+  .resume .func .skills-soft ul li small {
+    position: absolute;
+    display: block;
+    width: 100%;
+    top: 52%;
+    transition-duration: 0.3s;
+  }
+  .resume .func .skills-soft ul li span { top: 40%; }
+  .languages {
+    clear: both;
+    background: #283593;
+    padding: 15px;
+    margin-top: 15px;
+  }
+  .languages ul {
+    margin-left: 15px;
+    padding-left: 25px;
+  }
+  .languages ul li::before {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border: 3px solid #fff;
+    background: #ffb300;
+    border-radius: 50%;
+    left: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .interests {
+    clear: both;
+    background: #283593;
+    margin-top: 15px;
+    padding: 15px;
+  }
+  .interests .interests-items {
+    box-sizing: border-box;
+    padding: 0 0 15px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .interests .interests-items div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  .interests .interests-items div:hover i { transform: scale(1.2); }
+  .interests .interests-items div:hover span { color: #fdd835; transition-duration: 0.3s; }
+  .interests .interests-items div i {
+    font-size: 45px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    color: #ffb300;
+    transition-duration: 0.3s;
+  }
+  .interests .interests-items div span { display: block; }
+  .job-header h4 {
+    margin: 0;
+    font-size: 1.25em;
+    color: #ffb300;
+    line-height: 1.3;
+  }
+  .job-header .job-title {
+    display: block;
+    font-weight: 700;
+    font-size: 1.1em;
+    color: #ffb300;
+    margin-bottom: 2px;
+  }
+  .job-header .company {
+    display: block;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 2px;
+  }
+  .job-header .location {
+    display: block;
+    font-weight: 400;
+    color: #ccc;
+    opacity: 0.8;
+    margin-bottom: 2px;
+  }
+  @media (max-width: 768px) {
+    .resume { margin: 10px; }
+    .resume .base, .resume .func { padding: 20px 10px; }
+    .resume .base .profile { padding: 20px 10px 30px; margin: -20px -10px 30px; }
+    .resume .base .profile .info .name { font-size: 1.5em; }
+    .resume .base .profile .info .job { font-size: 1.2em; }
+    .job-header h4 { font-size: 1.1em; }
+    .resume .func .skills-soft ul li { flex: 1 1 45%; margin: 10px; }
+    .resume .func .skills-soft ul { justify-content: center; }
+    .resume .func .skills-soft ul li svg { width: 200px; height: 200px; }
+  }
+  @media (max-width: 480px) {
+    h3 { font-size: 1.1em; }
+    .job-header h4 { font-size: 1em; }
+    .resume .base .profile .info .name { font-size: 1.3em; }
+    .resume .base .profile .info .job { font-size: 1em; }
+    .resume .func .skills-soft ul li { flex: 1 1 90%; margin: 10px auto; }
+    .resume .func .skills-soft ul li svg { width: 200px; height: 200px; }
+  }
+  

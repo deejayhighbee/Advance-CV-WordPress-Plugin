@@ -1,0 +1,20 @@
+/* Basic styling for the CV meta box in the admin area */
+#cv_meta_box h3 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-top: 20px;
+}
+#cv_meta_box input[type="text"],
+#cv_meta_box input[type="email"],
+#cv_meta_box input[type="number"],
+#cv_meta_box textarea {
+    margin-bottom: 10px;
+}
+#cv_meta_box button {
+    background: #283593;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
